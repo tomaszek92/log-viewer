@@ -1,0 +1,11 @@
+.form-group label {
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.form-check-label-sm {
+  font-size: .875rem;
+}
