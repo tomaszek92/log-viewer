@@ -4,7 +4,7 @@ import { IDropDownListItem } from "../../shared/IDropDownListItem";
 import { Severity } from "../shared/Severity";
 import { LogsOrder } from "../shared/LogsOrder";
 import * as moment from "moment";
-import { ServersService } from "../shared/servers/servers.service";
+import { EndpointsService } from "../shared/endpoints/endpoints.service";
 import { ApplicationsService } from "../shared/applications/applications.service";
 import { forkJoin } from "rxjs/observable/forkJoin";
 
@@ -15,14 +15,14 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 })
 export class ViewLogsFormComponent implements OnInit {
   public logsRequest: ILogsRequestDto;
-  public servers: IDropDownListItem[];
+  public endpoints: IDropDownListItem[];
   public applications: IDropDownListItem[];
   public severities: IDropDownListItem[];
   public logsOrders: IDropDownListItem[];
   @Output() getLogsEvent: EventEmitter<ILogsRequestDto> = new EventEmitter();
 
   constructor(
-    private readonly serversService: ServersService,
+    private readonly endpointsService: EndpointsService,
     private readonly applicationService: ApplicationsService) {
 
     this.logsRequest = {} as any;
@@ -43,13 +43,13 @@ export class ViewLogsFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    const getServers = this.serversService.getServers();
+    const getEndpoints = this.endpointsService.getEndpoints();
     const getApplications =  this.applicationService.getApplications();
 
-    forkJoin(getServers, getApplications).subscribe(response => {
-      this.servers = [];
-      for (const server of response[0]) {
-        this.servers.push({ id: server.id, description: `${server.name} - ${server.address}` });
+    forkJoin(getEndpoints, getApplications).subscribe(response => {
+      this.endpoints = [];
+      for (const endpoint of response[0]) {
+        this.endpoints.push({ id: endpoint.id, description: `${endpoint.name} - ${endpoint.address}` });
       }
 
       this.applications = [];
@@ -58,7 +58,7 @@ export class ViewLogsFormComponent implements OnInit {
       }
 
       this.logsRequest = {
-        serverId: this.servers[0].id,
+        endpointId: this.endpoints[0].id,
         applicationId: this.applications[0].id,
         extraField1: "extra field 1",
         extraField2: "extra field 2",

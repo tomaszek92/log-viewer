@@ -2,7 +2,7 @@ import { LogsOrder } from "../LogsOrder";
 import { Severity } from "../Severity";
 
 export interface ILogsRequestDto {
-  serverId: number;
+  endpointId: number;
   applicationId: number;
   extraField1: string;
   extraField2: string;

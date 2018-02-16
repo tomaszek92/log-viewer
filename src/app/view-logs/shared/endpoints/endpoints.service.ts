@@ -5,18 +5,18 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import {} from "@angular/common/http";
 import { environment } from "../../../../environments/environment";
 import { HttpServiceBase } from "../../../shared/HttpServiceBase";
-import { IServerDto } from "./IServerDto";
+import { IEndpointDto } from "./IEndpointDto";
 
 @Injectable()
-export class ServersService extends HttpServiceBase {
+export class EndpointsService extends HttpServiceBase {
 
   constructor(private readonly httpClient: HttpClient) {
     super();
   }
 
-  getServers(): Observable<IServerDto[]> {
+  getEndpoints(): Observable<IEndpointDto[]> {
     return this.httpClient
-      .get(`${environment.webApiUrl}/servers`)
+      .get(`${environment.webApiUrl}/endpoints`)
       .catch(this.handleError);
   }
 }

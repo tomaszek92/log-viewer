@@ -21,7 +21,7 @@ export class LogsService extends HttpServiceBase {
 
   getLogs(request: ILogsRequestDto): Observable<ILogEntryDto[]> {
     let params = new HttpParams();
-    params = params.append("serverId", request.serverId.toString());
+    params = params.append("endpointId", request.endpointId.toString());
     params = params.append("applicationId", request.applicationId.toString());
     params = params.append("extraField1", request.extraField1);
     params = params.append("extraField2", request.extraField2);

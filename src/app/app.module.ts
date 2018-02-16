@@ -15,7 +15,7 @@ import { ViewLogsLogEntryComponent } from "./view-logs/log-entry/log-entry.compo
 import { AboutComponent } from "./about/about.comoment";
 import { appRoutes } from "./routes";
 import { LogsService } from "./view-logs/shared/logs/logs.service";
-import { ServersService } from "./view-logs/shared/servers/servers.service";
+import { EndpointsService } from "./view-logs/shared/endpoints/endpoints.service";
 import { ApplicationsService } from "./view-logs/shared/applications/applications.service";
 
 @NgModule({
@@ -40,7 +40,7 @@ import { ApplicationsService } from "./view-logs/shared/applications/application
   providers: [
     Title,
     LogsService,
-    ServersService,
+    EndpointsService,
     ApplicationsService,
     { provide: OWL_DATE_TIME_LOCALE, useValue: "en"}
   ],
