@@ -10,8 +10,7 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({
   selector: "app-view-logs-request-details",
-  templateUrl: "./request-details.component.html",
-  styleUrls: ["./request-details.component.css"]
+  templateUrl: "./request-details.component.html"
 })
 export class ViewLogsRequestDetailsComponent implements OnInit {
   public logsRequest: ILogsRequestDto;

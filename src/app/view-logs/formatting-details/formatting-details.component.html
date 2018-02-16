@@ -5,8 +5,39 @@
       Formatting details
     </button>
   </div>
-  <div id="formattingDetailsBody" class="collapse hide">
+  <div id="formattingDetailsBody" class="collapse show">
     <div class="card-body">
+      <form name="form" novalidate #form="ngForm">
+        <div class="form-row">
+          <div class="form-group col">
+            <div class="form-check">
+              <input id="show-source-cb" class="form-check-input" type="checkbox" [(ngModel)]="showSource"
+                name="showSource">
+              <label class="form-check-label form-check-label-sm" for="show-source-cb">
+                Show source
+              </label>
+            </div>
+          </div>
+          <div class="form-group col">
+              <div class="form-check">
+                <input id="utc-as-local-cb" class="form-check-input" type="checkbox" [(ngModel)]="utcAsLocal"
+                  name="utcAsLocal">
+                <label class="form-check-label form-check-label-sm" for="utc-as-local-cb">
+                  UTC as local
+                </label>
+              </div>
+            </div>
+            <div class="form-group col">
+                <div class="form-check">
+                  <input id="detailed-exceptions-cb" class="form-check-input" type="checkbox" [(ngModel)]="detailedExceptions"
+                    name="detailedExceptions">
+                  <label class="form-check-label form-check-label-sm" for="detailed-exceptions-cb">
+                    Detailed exceptions
+                  </label>
+                </div>
+              </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
