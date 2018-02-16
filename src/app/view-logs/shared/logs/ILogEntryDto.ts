@@ -1,4 +1,4 @@
-import { Severity } from "./Severity";
+import { Severity } from "../Severity";
 
 export interface ILogEntryDto {
   severity: Severity;

@@ -7,10 +7,10 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import * as moment from "moment";
 
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../../environments/environment";
 import { ILogEntryDto } from "./ILogEntryDto";
 import { ILogsRequestDto } from "./ILogsRequestDto";
-import { HttpServiceBase } from "../../shared/HttpServiceBase";
+import { HttpServiceBase } from "../../../shared/HttpServiceBase";
 
 @Injectable()
 export class LogsService extends HttpServiceBase {

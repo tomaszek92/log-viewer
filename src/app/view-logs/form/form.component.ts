@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { ILogsRequestDto } from "../shared/ILogsRequestDto";
+import { ILogsRequestDto } from "../shared/logs/ILogsRequestDto";
 import { IDropDownListItem } from "../../shared/IDropDownListItem";
 import { Severity } from "../shared/Severity";
 import { LogsOrder } from "../shared/LogsOrder";
 import * as moment from "moment";
-import { ServersService } from "../shared/servers.service";
-import { ApplicationsService } from "../shared/applications.service";
+import { ServersService } from "../shared/servers/servers.service";
+import { ApplicationsService } from "../shared/applications/applications.service";
 import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({

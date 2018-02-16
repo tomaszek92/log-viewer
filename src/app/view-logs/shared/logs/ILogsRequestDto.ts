@@ -1,5 +1,5 @@
-import { LogsOrder } from "./LogsOrder";
-import { Severity } from "./Severity";
+import { LogsOrder } from "../LogsOrder";
+import { Severity } from "../Severity";
 
 export interface ILogsRequestDto {
   serverId: number;

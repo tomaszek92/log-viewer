@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 import "rxjs/add/operator/map";
 
-import { LogsService } from "./shared/logs.service";
-import { ILogsRequestDto } from "./shared/ILogsRequestDto";
-import { ILogEntryDto } from "./shared/ILogEntryDto";
+import { LogsService } from "./shared/logs/logs.service";
+import { ILogsRequestDto } from "./shared/logs/ILogsRequestDto";
+import { ILogEntryDto } from "./shared/logs/ILogEntryDto";
 
 @Component({
   selector: "app-view-logs",

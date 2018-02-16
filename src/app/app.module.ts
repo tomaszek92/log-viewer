@@ -14,9 +14,9 @@ import { ViewLogsFormComponent } from "./view-logs/form/form.component";
 import { ViewLogsLogEntryComponent } from "./view-logs/log-entry/log-entry.component";
 import { AboutComponent } from "./about/about.comoment";
 import { appRoutes } from "./routes";
-import { LogsService } from "./view-logs/shared/logs.service";
-import { ServersService } from "./view-logs/shared/servers.service";
-import { ApplicationsService } from "./view-logs/shared/applications.service";
+import { LogsService } from "./view-logs/shared/logs/logs.service";
+import { ServersService } from "./view-logs/shared/servers/servers.service";
+import { ApplicationsService } from "./view-logs/shared/applications/applications.service";
 
 @NgModule({
   declarations: [

@@ -3,20 +3,21 @@ import { Observable } from "rxjs/Rx";
 import { Subject } from "rxjs/Subject";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import {} from "@angular/common/http";
-import { environment } from "../../../environments/environment";
-import { HttpServiceBase } from "../../shared/HttpServiceBase";
-import { IServerDto } from "./servers/IServerDto";
+import { environment } from "../../../../environments/environment";
+import { HttpServiceBase } from "../../../shared/HttpServiceBase";
+import { IApplicationDto } from "./IApplicationDto";
+
 
 @Injectable()
-export class ServersService extends HttpServiceBase {
+export class ApplicationsService extends HttpServiceBase {
 
   constructor(private readonly httpClient: HttpClient) {
     super();
   }
 
-  getServers(): Observable<IServerDto[]> {
+  getApplications(): Observable<IApplicationDto[]> {
     return this.httpClient
-      .get(`${environment.webApiUrl}/servers`)
+      .get(`${environment.webApiUrl}/applications`)
       .catch(this.handleError);
   }
 }
