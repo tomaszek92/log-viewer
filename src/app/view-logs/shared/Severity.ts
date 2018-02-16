@@ -1,6 +1,7 @@
 export enum Severity {
   Debug,
-  Info,
+  Diagnostic,
+  Information,
   Warning,
   Error,
   Fatal

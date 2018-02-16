@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import "rxjs/add/operator/map";
 
 import { LogsService } from "./shared/logs.service";
@@ -10,17 +10,15 @@ import { ILogEntryDto } from "./shared/ILogEntryDto";
   templateUrl: "./view-logs.component.html",
   styleUrls: ["./view-logs.component.css"]
 })
-export class ViewLogsComponent implements OnInit {
+export class ViewLogsComponent {
   public logs: ILogEntryDto[];
 
   constructor(private readonly logsService: LogsService) { }
 
-  ngOnInit() {
-    this.logsService.getLogs().subscribe(
-      (logs) => {
-        console.log(logs);
-        this.logs = logs;
-      },
-      errorResponse => console.log(errorResponse));
+  getLogs(logsRequest: ILogsRequestDto) {
+    console.log(logsRequest);
+    this.logsService
+      .getLogs(logsRequest)
+      .subscribe(response => this.logs = response);
   }
 }

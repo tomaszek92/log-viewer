@@ -1,6 +1,6 @@
 <div class="row" style="margin-top: 10px;">
   <div class="col">
-    <app-view-logs-form></app-view-logs-form>
+    <app-view-logs-form (getLogsEvent)="getLogs($event)"></app-view-logs-form>
   </div>
 </div>
 <div *ngFor="let logs of logs">
