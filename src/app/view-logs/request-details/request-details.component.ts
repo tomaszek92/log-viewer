@@ -9,11 +9,11 @@ import { ApplicationsService } from "../shared/applications/applications.service
 import { forkJoin } from "rxjs/observable/forkJoin";
 
 @Component({
-  selector: "app-view-logs-form",
-  templateUrl: "./form.component.html",
-  styleUrls: ["./form.component.css"]
+  selector: "app-view-logs-request-details",
+  templateUrl: "./request-details.component.html",
+  styleUrls: ["./request-details.component.css"]
 })
-export class ViewLogsFormComponent implements OnInit {
+export class ViewLogsRequestDetailsComponent implements OnInit {
   public logsRequest: ILogsRequestDto;
   public endpoints: IDropDownListItem[];
   public applications: IDropDownListItem[];

@@ -1,11 +1,11 @@
 <div class="card">
   <div class="card-header">
-    <button class="btn btn-link" data-toggle="collapse" data-target="#formBody" aria-expanded="true" aria-controls="formBody"
+    <button class="btn btn-link" data-toggle="collapse" data-target="#requestDetailsBody" aria-expanded="true" aria-controls="requestDetails"
       style="padding-left: 0;">
       Request details
     </button>
   </div>
-  <div id="formBody" class="collapse show">
+  <div id="requestDetails" class="collapse show">
     <div class="card-body">
       <form name="form" novalidate #form="ngForm" (ngSubmit)="getLogs()">
         <div class="form-row">

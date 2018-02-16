@@ -10,8 +10,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { ViewLogsComponent } from "./view-logs/view-logs.component";
-import { ViewLogsFormComponent } from "./view-logs/form/form.component";
+import { ViewLogsRequestDetailsComponent } from "./view-logs/request-details/request-details.component";
 import { ViewLogsLogEntryComponent } from "./view-logs/log-entry/log-entry.component";
+import { ViewLogsFormattingDetailsComponent } from "./view-logs/formatting-details/formatting-details.component";
 import { AboutComponent } from "./about/about.comoment";
 import { appRoutes } from "./routes";
 import { LogsService } from "./view-logs/shared/logs/logs.service";
@@ -23,8 +24,9 @@ import { ApplicationsService } from "./view-logs/shared/applications/application
     AppComponent,
     NavBarComponent,
     ViewLogsComponent,
-    ViewLogsFormComponent,
+    ViewLogsRequestDetailsComponent,
     ViewLogsLogEntryComponent,
+    ViewLogsFormattingDetailsComponent,
     AboutComponent
   ],
   imports: [
