@@ -54,10 +54,10 @@ var logs = [{
 	"message": "Authentication succeeded. ServerApplicationId: 100, clientApplicationId 110, authenticationKey: XXXXXXXX-XXXX-XXXX-XXXX-5199c793f82f, remote IP: 104.40.229.28",
 	"source": "Yp.Common.Base.Wcf.Security.SimpleAuthenticator",
 	"exception": null,
-	"extraField1": null,
-	"extraField2": null,
-	"extraField3": null,
-	"extraField4": null,
+	"extraField1": "extraField1",
+	"extraField2": "extraField2",
+	"extraField3": "extraField3",
+	"extraField4": "extraField4",
 	"creationDateUtc": "2018-02-15T23:01:19.203Z"
 }, {
 	"severity": 2,

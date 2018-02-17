@@ -5,14 +5,14 @@
 </div>
 <div class="row" style="margin-top: 10px;">
   <div class="col">
-    <app-view-logs-formatting-details #formattingSettings></app-view-logs-formatting-details>
+    <app-view-logs-formatting-details #formattingDetails></app-view-logs-formatting-details>
   </div>
 </div>
 <div class="row">
   <div class="col">
     <ul class="list-group list-group-flush">
       <li class="list-group-item" *ngFor="let log of logs">
-        <app-view-logs-log-entry [logEntry]="log" [showSource]="formattingSettings.showSource" [utcAsLocal]="formattingSettings.utcAsLocal" [detailedExceptions]="formattingSettings.detailedExceptions"></app-view-logs-log-entry>
+        <app-view-logs-log-entry [logEntry]="log" [formattingSettings]="formattingDetails.formattingSettings"></app-view-logs-log-entry>
       </li>
     </ul>
   </div>

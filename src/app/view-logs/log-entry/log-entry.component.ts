@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { ILogEntryDto } from "../shared/logs/ILogEntryDto";
 import * as moment from "moment";
 import { Severity } from "../shared/Severity";
+import { IFormattingSettings } from "../formatting-details/IFormattingSettings";
 
 @Component({
   selector: "app-view-logs-log-entry",
@@ -9,9 +10,7 @@ import { Severity } from "../shared/Severity";
 })
 export class ViewLogsLogEntryComponent {
   @Input() logEntry: ILogEntryDto;
-  @Input() showSource: boolean;
-  @Input() utcAsLocal: boolean;
-  @Input() detailedExceptions: boolean;
+  @Input() formattingSettings: IFormattingSettings;
   severity = Severity;
 
   convertUtcToLocal(utcDate: Date): Date {

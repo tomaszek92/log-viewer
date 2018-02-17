@@ -1,20 +1,20 @@
 <div class="row">
-  <div class="col-1 text-secondary" *ngIf="!utcAsLocal">{{logEntry.creationDateUtc | date:'yyyy-MM-dd HH:mm:ss'}}</div>
-  <div class="col-1 text-secondary" *ngIf="utcAsLocal">{{convertUtcToLocal(logEntry.creationDateUtc) | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+  <div class="col-1 text-secondary" *ngIf="!formattingSettings.utcAsLocal">{{logEntry.creationDateUtc | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+  <div class="col-1 text-secondary" *ngIf="formattingSettings.utcAsLocal">{{convertUtcToLocal(logEntry.creationDateUtc) | date:'yyyy-MM-dd HH:mm:ss'}}</div>
   <div class="col-1" [class.text-success]="logEntry.severity === severity.Debug" [class.text-info]="logEntry.severity === severity.Diagnostic"
     [class.text-primary]="logEntry.severity === severity.Information" [class.text-warning]="logEntry.severity === severity.Warning"
     [class.text-danger]="logEntry.severity === severity.Error || logEntry.severity === severity.Fatal">
     {{getSeverityString(logEntry.severity)}}</div>
-  <div class="col-1 text-secondary font-weight-light" *ngIf="logEntry.extraField1">1: '{{logEntry.extraField1}}'</div>
-  <div class="col-1 text-secondary font-weight-light" *ngIf="logEntry.extraField2">2: '{{logEntry.extraField2}}'</div>
-  <div class="col-1 text-secondary font-weight-light" *ngIf="logEntry.extraField3">3: '{{logEntry.extraField3}}'</div>
-  <div class="col-1 text-secondary font-weight-light" *ngIf="logEntry.extraField4">4: '{{logEntry.extraField4}}'</div>
+  <div class="col-1 text-secondary font-weight-light" [hidden]="!logEntry.extraField1 || !formattingSettings.showExtraField1">1: '{{logEntry.extraField1}}'</div>
+  <div class="col-1 text-secondary font-weight-light" [hidden]="!logEntry.extraField2 || !formattingSettings.showExtraField2">2: '{{logEntry.extraField2}}'</div>
+  <div class="col-1 text-secondary font-weight-light" [hidden]="!logEntry.extraField3 || !formattingSettings.showExtraField3">3: '{{logEntry.extraField3}}'</div>
+  <div class="col-1 text-secondary font-weight-light" [hidden]="!logEntry.extraField4 || !formattingSettings.showExtraField4">4: '{{logEntry.extraField4}}'</div>
   <div class="col">
-    <span class="text-secondary font-weight-light" [hidden]="!showSource">({{logEntry.source}})</span>
+    <span class="text-secondary font-weight-light" [hidden]="!formattingSettings.showSource">({{logEntry.source}})</span>
     <span>{{logEntry.message}}</span>
   </div>
 </div>
-<div class="row" [hidden]="!detailedExceptions">
+<div class="row" [hidden]="!formattingSettings.detailedExceptions">
   <div class="col text-danger">
     {{logEntry.exception}}
   </div>
