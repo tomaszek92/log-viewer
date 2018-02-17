@@ -5,7 +5,7 @@ import { Component, Output } from "@angular/core";
   templateUrl: "./formatting-details.component.html"
 })
 export class ViewLogsFormattingDetailsComponent {
-  @Output() showSource: boolean;
-  @Output() utcAsLocal: boolean;
-  @Output() detailedExceptions: boolean;
+  showSource: boolean = false;
+  utcAsLocal: boolean = false;
+  detailedExceptions: boolean = false;
 }
