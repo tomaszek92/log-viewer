@@ -16,10 +16,10 @@ export class LoginComponent {
   constructor(
     private readonly router: Router,
     private readonly authService: AuthService) {
-    this.user = {
-      email: "",
-      password: ""
-    };
+      this.user = {
+        email: "",
+        password: ""
+      };
   }
 
   login() {
@@ -29,7 +29,7 @@ export class LoginComponent {
         return Observable.throw(error);
       })
       .subscribe(response => {
-        this.authService.setToken(response.access_token);
+        this.authService.setToken(response.access_token, response[".expires"]);
         this.authorizationErrorMsg = undefined;
         this.router.navigate(["viewLogs"])
       });

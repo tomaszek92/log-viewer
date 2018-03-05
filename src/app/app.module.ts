@@ -21,6 +21,7 @@ import { EndpointsService } from "./view-logs/shared/endpoints/endpoints.service
 import { ApplicationsService } from "./view-logs/shared/applications/applications.service";
 import { AuthService } from "./shared/auth.service";
 import { AuthGuard } from "./shared/auth-guard";
+import { LocalStorageExpiredService } from "./shared/local-storage-expired/local-storage-expired.service";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthGuard } from "./shared/auth-guard";
     ApplicationsService,
     { provide: OWL_DATE_TIME_LOCALE, useValue: "en"},
     AuthService,
-    AuthGuard
+    AuthGuard,
+    LocalStorageExpiredService
   ],
   bootstrap: [AppComponent]
 })

@@ -5,13 +5,15 @@ import { Observable } from "rxjs/Rx";
 import { IUserDto } from "./IUserDto";
 import { HttpServiceBase } from "./HttpServiceBase";
 import { environment } from "../../environments/environment";
+import { LocalStorageExpiredService } from "./local-storage-expired/local-storage-expired.service";
 
 @Injectable()
 export class AuthService extends HttpServiceBase {
   private readonly localStorage_token_key: string = "token";
-  private token: string;
 
-  constructor(private readonly httpClient: HttpClient) {
+  constructor(
+    private readonly httpClient: HttpClient,
+    private readonly localStorageExpired: LocalStorageExpiredService) {
     super();
   }
 
@@ -24,16 +26,12 @@ export class AuthService extends HttpServiceBase {
     return this.httpClient.post(`${environment.loginUrl}`, data, { headers: headers });
   }
 
-  setToken(token: string): void {
-    localStorage.setItem(this.localStorage_token_key, token);
-    this.token = token;
+  setToken(token: string, expires: Date): void {
+    this.localStorageExpired.setItem(this.localStorage_token_key, token, expires);
   }
 
   getToken(): string {
-    if (!this.token) {
-      this.token = localStorage.getItem(this.localStorage_token_key);
-    }
-    return this.token;
+    return this.localStorageExpired.getItem(this.localStorage_token_key);
   }
 
   isLoggedIn(): boolean {
