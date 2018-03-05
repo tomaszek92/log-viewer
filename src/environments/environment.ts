@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  webApiUrl: "http://localhost:43819/api"
+  webApiUrl: "http://localhost:43819/api",
+  loginUrl: "http://localhost:43819/token"
 };

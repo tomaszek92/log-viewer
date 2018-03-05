@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { Subject } from "rxjs/Subject";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import {} from "@angular/common/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
@@ -11,11 +11,14 @@ import { environment } from "../../../../environments/environment";
 import { ILogEntryDto } from "./ILogEntryDto";
 import { ILogsRequestDto } from "./ILogsRequestDto";
 import { HttpServiceBase } from "../../../shared/HttpServiceBase";
+import { AuthService } from "../../../shared/auth.service";
 
 @Injectable()
 export class LogsService extends HttpServiceBase {
 
-  constructor(private readonly httpClient: HttpClient) {
+  constructor(
+    private readonly httpClient: HttpClient,
+    private readonly authService: AuthService) {
     super();
   }
 
@@ -34,8 +37,12 @@ export class LogsService extends HttpServiceBase {
     params = params.append("logsOrder", request.logsOrder.toString());
     params = params.append("includeGeneralLogs", request.includeGeneralLogs.toString());
 
+    const headers = new HttpHeaders({
+      "Authorization": `Bearer ${this.authService.getToken()}`
+    });
+
     return this.httpClient
-      .get(`${environment.webApiUrl}/logs`, { params: params})
+      .get(`${environment.webApiUrl}/logs`, { params, headers})
       .catch(this.handleError);
   }
 }

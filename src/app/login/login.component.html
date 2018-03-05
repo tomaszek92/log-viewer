@@ -1,0 +1,36 @@
+<div class="row" style="margin-top: 10px;">
+  <div class="col">
+    <form novalidate #form="ngForm" (ngSubmit)="login()">
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="user.email" email name="email"
+            #email="ngModel" required [class.is-invalid]="email.invalid">
+          <div class="invalid-feedback" [hidden]="!email.invalid">
+            Email is invalid
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
+            name="password" required [class.is-invalid]="password.invalid">
+          <div class="invalid-feedback" [hidden]="!password.invalid">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <div class="form-group row" [hidden]="!authorizationErrorMsg">
+        <div class="col-sm-12">
+          <div class="alert alert-danger" style="margin-bottom: 0;">{{authorizationErrorMsg}}</div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-outline-primary" [disabled]="form.invalid">Sign in</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
