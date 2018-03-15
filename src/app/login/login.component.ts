@@ -25,7 +25,7 @@ export class LoginComponent {
   login() {
     const data = this.authService.login(this.user)
       .catch(error => {
-        this.authorizationErrorMsg = error.message;
+        this.authorizationErrorMsg = error.error.error_description;
         return Observable.throw(error);
       })
       .subscribe(response => {
