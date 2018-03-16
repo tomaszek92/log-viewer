@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CustomFormsModule } from "ng2-validation";
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from "ng-pick-datetime";
 
@@ -22,6 +22,9 @@ import { ApplicationsService } from "./view-logs/shared/applications/application
 import { AuthService } from "./shared/auth.service";
 import { AuthGuard } from "./shared/auth-guard";
 import { LocalStorageExpiredService } from "./shared/local-storage-expired/local-storage-expired.service";
+import { PacManLoader } from "./shared/pac-man-loader/pac-man-loader.component";
+import { PacManLoaderInterceptor } from "./shared/pac-man-loader/pac-man-loader.interceptor";
+import { PacManLoaderService } from "./shared/pac-man-loader/pac-man-loader.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { LocalStorageExpiredService } from "./shared/local-storage-expired/local
     ViewLogsRequestDetailsComponent,
     ViewLogsLogEntryComponent,
     ViewLogsFormattingDetailsComponent,
-    AboutComponent
+    AboutComponent,
+    PacManLoader
   ],
   imports: [
     BrowserModule,
@@ -49,10 +53,12 @@ import { LocalStorageExpiredService } from "./shared/local-storage-expired/local
     LogsService,
     EndpointsService,
     ApplicationsService,
-    { provide: OWL_DATE_TIME_LOCALE, useValue: "en"},
+    { provide: OWL_DATE_TIME_LOCALE, useValue: "en" },
     AuthService,
     AuthGuard,
-    LocalStorageExpiredService
+    LocalStorageExpiredService,
+    PacManLoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: PacManLoaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
