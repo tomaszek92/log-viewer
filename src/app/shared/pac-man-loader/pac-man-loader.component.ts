@@ -11,7 +11,6 @@ export class PacManLoader {
 
   constructor(private readonly pacManLoaderService: PacManLoaderService) {
     this.pacManLoaderService.ajaxCallsObservable.subscribe(ajaxCalls => {
-      console.log(`subscribe: ${ajaxCalls}`);
       this.ajaxCalls = ajaxCalls;
     })
   }

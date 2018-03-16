@@ -13,8 +13,9 @@ export class ViewLogsLogEntryComponent {
   @Input() formattingSettings: IFormattingSettings;
   severity = Severity;
 
-  convertUtcToLocal(utcDate: Date): Date {
-    return moment.utc(utcDate).local().toDate();
+  showUtc(date: string): Date {
+    const d = new Date(date);
+    return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds());
   }
 
   getSeverityString(severity: Severity): string {

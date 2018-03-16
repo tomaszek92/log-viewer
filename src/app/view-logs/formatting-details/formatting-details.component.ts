@@ -11,7 +11,7 @@ export class ViewLogsFormattingDetailsComponent {
   constructor() {
     this.formattingSettings = {
       showSource: false,
-      utcAsLocal: false,
+      utcAsLocal: true,
       detailedExceptions: true,
       showExtraField1: true,
       showExtraField2: true,
